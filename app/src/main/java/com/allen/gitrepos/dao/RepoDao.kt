@@ -1,18 +1,15 @@
 package com.allen.gitrepos.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.allen.gitrepos.model.Repo
 
-@Dao
-interface RepoDao {
-    @Query("SELECT * FROM Repo")
-    fun queryRepos(): LiveData<List<Repo>>
+//@Dao
+//abstract class RepoDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertRepos(repo: Repo)
-
-}
+//    @Insert(onConflict = OnConflictStrategy.REPLACE)
+//    abstract fun insert(vararg repos: Repo)
+//
+//    @Query("SELECT * FROM Repo WHERE id in (:repoIds)")
+//    protected abstract fun loadById(repoIds: List<Int>): LiveData<List<Repo>>
+//}

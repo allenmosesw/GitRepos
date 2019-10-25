@@ -1,10 +1,8 @@
 package com.allen.gitrepos.model
 
-import androidx.room.Embedded
-import androidx.room.Entity
-import androidx.room.Index
+import androidx.room.*
+import com.allen.gitrepos.dao.GitTypeConverters
 import com.squareup.moshi.Json
-import java.security.acl.Owner
 
 /**
  * Using name/owner_login as primary key instead of id since name/owner_login is always available
@@ -16,6 +14,7 @@ import java.security.acl.Owner
         Index("owner_login")],
     primaryKeys = ["name", "owner_login"]
 )
+@TypeConverters(GitTypeConverters::class)
 data class Repo(
     @field:Json(name = "id")
     val id: Int,

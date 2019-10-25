@@ -56,6 +56,9 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:${rootProject.ext.dagger2Version}"
     kapt "com.google.dagger:dagger-android-processor:${rootProject.ext.dagger2Version}"
 
+    //Logging
+    implementation "com.jakewharton.timber:timber:${rootProject.ext.timber}"
+
     //Room
     implementation "android.arch.persistence.room:runtime:${rootProject.ext.archVersion}"
     kapt "android.arch.persistence.room:compiler:${rootProject.ext.archVersion}"
@@ -65,7 +68,7 @@ dependencies {
 
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofitVersion}"
-    implementation "com.squareup.retrofit2:converter-moshi:${rootProject.ext.moshiConverterVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${rootProject.ext.retrofitVersion}"
     implementation "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.rxJavaAdapterVersion}"
 
     //RxJava RxAndroid

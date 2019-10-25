@@ -2,8 +2,6 @@ package com.allen.gitrepos.di.modules
 
 import android.app.Application
 import androidx.room.Room
-import com.allen.gitrepos.dao.Database
-import com.allen.gitrepos.dao.RepoDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -14,16 +12,16 @@ class AppModule(val app: Application) {
     @Provides
     @Singleton
     fun provideApplication(): Application = app
-
-    @Provides
-    @Singleton
-    fun provideGitHubDatabase(app: Application): Database = Room.databaseBuilder(
-        app,
-        Database::class.java,
-        "github_db"
-    ).build()
-
-    @Provides
-    @Singleton
-    fun provideRepoDao(database: Database): RepoDao = database.repodao()
+//
+//    @Provides
+//    @Singleton
+//    fun provideGitHubDatabase(app: Application): Database = Room.databaseBuilder(
+//        app,
+//        Database::class.java,
+//        "github_db"
+//    ).build()
+//
+//    @Provides
+//    @Singleton
+//    fun provideRepoDao(database: Database): RepoDao = database.repodao()
 }

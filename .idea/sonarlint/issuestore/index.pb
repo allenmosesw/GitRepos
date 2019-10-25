@@ -13,3 +13,17 @@ q
 Aapp/src/main/java/com/allen/gitrepos/di/component/AppComponent.kt,f/2/f285660811799bcba82f54a60ee5c41b53ab4d9b
 f
 6app/src/main/java/com/allen/gitrepos/GitApplication.kt,0/d/0d7c73ca380712c5d71127bf554e2a656c7fc585
+n
+>app/src/main/java/com/allen/gitrepos/model/RepoSearchResult.kt,2/6/26b598802271a18ee4923ff6a3db168642625438
+c
+3app/src/main/java/com/allen/gitrepos/model/Repos.kt,7/a/7a1bdb80e26fcd1470497425a993d9179cfe5380
+l
+<app/src/main/java/com/allen/gitrepos/ui/home/HomeFragment.kt,4/9/4979c117165f5cbe8af2587fe3127f8756dfec2a
+m
+=app/src/main/java/com/allen/gitrepos/dao/GitTypeConverters.kt,7/1/713356743c1628401ea012b01b66d6decf21f706
+d
+4app/src/main/java/com/allen/gitrepos/dao/Database.kt,1/8/18895b043ea323f27fb390943358bd7152249b20
+c
+3app/src/main/java/com/allen/gitrepos/dao/RepoDao.kt,3/4/34642a7283de78d9f3d3b9e8af4aef6fef9a77b0
+f
+6app/src/main/java/com/allen/gitrepos/api/ApiService.kt,5/4/5445cc5f2866dd6487657b3e7817454eecbd2ca4
