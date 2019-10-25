@@ -3,7 +3,8 @@ package com.allen.gitrepos.model
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.Index
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import java.security.acl.Owner
 
 /**
  * Using name/owner_login as primary key instead of id since name/owner_login is always available
@@ -16,28 +17,25 @@ import com.google.gson.annotations.SerializedName
     primaryKeys = ["name", "owner_login"]
 )
 data class Repo(
+    @field:Json(name = "id")
     val id: Int,
-    @field:SerializedName("name")
+    @field:Json(name = "name")
     val name: String,
-    @field:SerializedName("full_name")
+    @field:Json(name = "full_name")
     val fullName: String,
-    @field:SerializedName("description")
-    val description: String?,
-    @field:SerializedName("owner")
-    @field:Embedded(prefix = "owner_")
+    @field:Json(name = "owner")
     val owner: Owner,
-    @field:SerializedName("stargazers_count")
-    val stars: Int
+    @field:Json(name = "description")
+    val description: String
 ) {
-
     data class Owner(
-        @field:SerializedName("login")
+        @field:Json(name = "login")
         val login: String,
-        @field:SerializedName("url")
-        val url: String?
+        @field:Json(name = "id")
+        val id: Int,
+        @field:Json(name = "node_id")
+        val nodeId: String,
+        @field:Json(name = "avatar_url")
+        val avatarUrl: String
     )
-
-    companion object {
-        const val UNKNOWN_ID = -1
-    }
 }

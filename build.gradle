@@ -19,7 +19,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-
     }
 }
 
@@ -40,7 +39,7 @@ ext {
     rxJavaAdapterVersion = "2.3.0"
     rxAndroidVersion = "2.0.2"
     rxJava2Version = "2.1.0"
-    archVersion = "1.0.0"
+    archVersion = "1.0.1"
 
 
     //test
@@ -49,8 +48,6 @@ ext {
     //testImpl
     testRunnerVersion = "1.0.1"
     testEspressoVersion = "3.0.1"
-
-
 
 
 }
