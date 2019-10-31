@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">GitRepos</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_repository">Repository</string>
+    <string name="title_search">Search</string>
+    <string name="a11y_user_photo">user picture</string>
+    <string name="a11y_user_name">user name</string>
+    <string name="retry">Retry</string>
+    <string name="search_hint">Search Repos</string>
 </resources>

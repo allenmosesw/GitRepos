@@ -1,4 +1,4 @@
-package com.allen.gitrepos.dao
+package com.allen.gitrepos.db
 
 import androidx.room.TypeConverter
 import java.lang.NumberFormatException

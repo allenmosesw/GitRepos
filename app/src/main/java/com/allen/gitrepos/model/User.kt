@@ -1,4 +1,4 @@
-package com.allen.gitrepos.api
+package com.allen.gitrepos.model
 
 import androidx.room.Entity
 import com.google.gson.annotations.SerializedName

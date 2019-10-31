@@ -6,6 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'androidx.navigation.safeargs.kotlin'
 android {
     compileSdkVersion 29
     defaultConfig {
@@ -26,6 +27,9 @@ android {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
+    dataBinding {
+        enabled = true
+    }
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -43,9 +47,17 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.1.0'
     implementation 'androidx.navigation:navigation-ui:2.1.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    //Android component Navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
-
+    implementation 'androidx.navigation:navigation-runtime:2.1.0'
+    implementation 'androidx.navigation:navigation-runtime-ktx:2.1.0'
     //moshi
     implementation "com.squareup.moshi:moshi-kotlin:${rootProject.ext.moshiKotlinVersion}"
 
@@ -60,11 +72,13 @@ dependencies {
     implementation "com.jakewharton.timber:timber:${rootProject.ext.timber}"
 
     //Room
-    implementation "android.arch.persistence.room:runtime:${rootProject.ext.archVersion}"
-    kapt "android.arch.persistence.room:compiler:${rootProject.ext.archVersion}"
+    implementation 'androidx.room:room-runtime:2.2.1'
+    kapt 'androidx.room:room-compiler:2.2.1'
     //Lifecycle
-    implementation "android.arch.lifecycle:extensions:${rootProject.ext.archVersion}"
-    kapt "android.arch.lifecycle:compiler:${rootProject.ext.archVersion}"
+    implementation "androidx.lifecycle:lifecycle-common-java8:${rootProject.ext.lifecycle}"
+//    kapt "androidx.lifecycle:lifecycle-compiler:${rootProject.ext.lifecycle}"
+
+
 
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofitVersion}"
@@ -74,6 +88,10 @@ dependencies {
     //RxJava RxAndroid
     implementation "io.reactivex.rxjava2:rxjava:${rootProject.ext.rxJava2Version}"
     implementation "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxAndroidVersion}"
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    kapt 'com.github.bumptech.glide:compiler:4.10.0'
 
 
     testImplementation 'junit:junit:4.12'

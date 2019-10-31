@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import com.allen.gitrepos.model.Contributor
 import com.allen.gitrepos.model.Repo
 import com.allen.gitrepos.model.RepoSearchResponse
+import com.allen.gitrepos.model.User
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.GET
@@ -13,11 +14,15 @@ import java.util.*
 
 interface ApiService {
 
-    @GET("repositories")
-    fun getRepo(): Observable<ApiResponse<Repo>>
-
     @GET("users/{login}")
     fun getUser(@Path("login") login: String): LiveData<ApiResponse<User>>
+
+    @GET("repositories")
+    fun getRepo(): LiveData<ApiResponse<Repo>>
+
+
+    @GET("users/{login}/repos")
+    fun getRepos(@Path("login") login: String): LiveData<ApiResponse<List<Repo>>>
 
     @GET("repos/{owner}/{name}")
     fun getRepo(

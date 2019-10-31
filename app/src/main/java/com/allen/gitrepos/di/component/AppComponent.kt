@@ -1,20 +1,29 @@
 package com.allen.gitrepos.di.component
 
 import android.app.Application
+import com.allen.gitrepos.GitApplication
 import com.allen.gitrepos.di.modules.AppModule
-import com.allen.gitrepos.di.modules.BuildersModule
+import com.allen.gitrepos.di.modules.MainActivityModule
+import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import javax.inject.Singleton
 
 @Singleton
 @Component(
-    modules = arrayOf(
+    modules = [
         AndroidInjectionModule::class,
-        BuildersModule::class,
-        AppModule::class
-    )
+        AppModule::class,
+        MainActivityModule::class]
 )
 interface AppComponent {
-    fun inject(app: Application)
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun application(application: Application): Builder
+
+        fun build(): AppComponent
+    }
+
+    fun inject(app: GitApplication)
 }

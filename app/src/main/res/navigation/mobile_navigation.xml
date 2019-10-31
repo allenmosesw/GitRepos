@@ -3,23 +3,56 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_repository">
 
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.allen.gitrepos.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/showRepo"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.allen.gitrepos.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_repository"
+        android:name="com.allen.gitrepos.ui.repository.RepositoryFragment"
+        android:label="@string/title_repository">
+        <argument
+            android:name="owner"
+            app:argType="string" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <action
+            android:id="@+id/showUser"
+            app:destination="@id/userFragment" />
+
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.allen.gitrepos.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/userFragment"
+        android:name="com.allen.gitrepos.ui.user.UserFragment"
+        android:label="User Fragment">
+        <argument
+            android:name="login"
+            app:argType="string" />
+
+        <argument
+            android:name="avatarUrl"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/showRepo"
+            app:destination="@id/navigation_repository" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.allen.gitrepos.ui.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" />
 </navigation>

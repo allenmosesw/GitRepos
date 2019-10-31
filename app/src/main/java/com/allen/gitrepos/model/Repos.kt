@@ -1,7 +1,8 @@
 package com.allen.gitrepos.model
 
 import androidx.room.*
-import com.allen.gitrepos.dao.GitTypeConverters
+import com.allen.gitrepos.db.GitTypeConverters
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 
 /**
@@ -14,27 +15,29 @@ import com.squareup.moshi.Json
         Index("owner_login")],
     primaryKeys = ["name", "owner_login"]
 )
-@TypeConverters(GitTypeConverters::class)
 data class Repo(
-    @field:Json(name = "id")
     val id: Int,
-    @field:Json(name = "name")
+    @field:SerializedName("name")
     val name: String,
-    @field:Json(name = "full_name")
+    @field:SerializedName("full_name")
     val fullName: String,
-    @field:Json(name = "owner")
+    @field:SerializedName("description")
+    val description: String?,
+    @field:SerializedName("owner")
+    @field:Embedded(prefix = "owner_")
     val owner: Owner,
-    @field:Json(name = "description")
-    val description: String
+    @field:SerializedName("stargazers_count")
+    val stars: Int
 ) {
+
     data class Owner(
-        @field:Json(name = "login")
+        @field:SerializedName("login")
         val login: String,
-        @field:Json(name = "id")
-        val id: Int,
-        @field:Json(name = "node_id")
-        val nodeId: String,
-        @field:Json(name = "avatar_url")
-        val avatarUrl: String
+        @field:SerializedName("url")
+        val url: String?
     )
+
+    companion object {
+        const val UNKNOWN_ID = -1
+    }
 }
